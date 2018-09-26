@@ -1,7 +1,6 @@
 
-import static org.junit.Assert.*;
-
 import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,13 +20,16 @@ public class FiboTest {
     }
 
     @Test
-    public void Given1_Return1()
+    @Parameters({
+            "1, 1",
+            "2, 1",
+            "3, 2",
+            "11,89"})
+    public void CollectionFibo(int numb, int result) throws Exception
     {
-        int expected = 1, value = 1;
+        int actual = fibo.Fib(numb);
 
-        int result = fibo.Fib(value);
-
-        assertEquals(expected, result);
+        assertEquals(actual, result);
     }
 
 }
